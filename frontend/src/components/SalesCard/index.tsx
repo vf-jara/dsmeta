@@ -1,26 +1,33 @@
-import React from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import NotificationButton from "../NotificationButton";
 import "./styles.css";
 
 export default function SalesCard() {
+  const [initialDate, setInitialDate] = useState(new Date());
+  const [finalDate, setFinalDate] = useState(new Date());
+
   return (
     <div className="dsmeta-card">
       <h2 className="dsmeta-sales-title">Vendas</h2>
       <div>
         <div className="dsmeta-form-control-container">
           <DatePicker
-            selected={new Date()}
-            onChange={(date: Date) => {}}
+            selected={initialDate}
+            onChange={(date: Date) => {
+              setInitialDate(date);
+            }}
             className="dsmeta-form-control"
             dateFormat="dd/MM/yyyy"
           />{" "}
         </div>
         <div className="dsmeta-form-control-container">
           <DatePicker
-            selected={new Date()}
-            onChange={(date: Date) => {}}
+            selected={finalDate}
+            onChange={(date: Date) => {
+              setFinalDate(date);
+            }}
             className="dsmeta-form-control"
             dateFormat="dd/MM/yyyy"
           />{" "}
